@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.sabpisal.todolist3.LoginFragment"
+        android:label="SIGN IN"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_todolist"
+            app:destination="@id/todolist" />
+    </fragment>
+    <fragment
+        android:id="@+id/todolist"
+        android:name="com.sabpisal.todolist3.TodolistFragment"
+        android:label="@string/welcome_label"
+        tools:layout="@layout/fragment_todolist" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_todolist_to_todoInformation"
+            app:destination="@id/todoInformation" />
+    </fragment>
+    <fragment
+        android:id="@+id/todoInformation"
+        android:name="com.sabpisal.todolist3.TodoInformation"
+        android:label="Additional Info"
+        tools:layout="@layout/fragment_todo_information" >
+        <action
+            android:id="@+id/action_todoInformation_to_todolist"
+            app:destination="@id/todolist" />
+    </fragment>
+</navigation>
